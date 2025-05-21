@@ -1,5 +1,5 @@
 import React from 'react';
-import { RiDeleteBin3Line } from 'react-icons/ri'
+import { RiDeleteBin3Line } from 'react-icons/ri';
 
 const CartContents = () => {
   const cartProducts = [
@@ -54,7 +54,7 @@ const CartContents = () => {
           <div>
             <p>$ {product.price.toLocaleString()}</p>
             <button>
-              <RiDeleteBin3Line className='h-6 w-6 mt-2 text-red-600'/>
+              <RiDeleteBin3Line className="h-6 w-6 mt-2 text-red-600" />
             </button>
           </div>
         </div>
