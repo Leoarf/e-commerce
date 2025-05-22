@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaFilter } from 'react-icons/fa';
 import FilterSidebar from '../components/Products/FilterSidebar';
+import SortOptions from '../components/Products/SortOptions';
+import ProductGrid from '../components/Products/ProductGrid';
 
 const CollectionPage = () => {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   const sidebarRef = useRef(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -112,6 +114,7 @@ const CollectionPage = () => {
       setProducts(fetchedProducts);
     }, 1000);
   }, []);
+
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Mobile Filter button */}
@@ -133,6 +136,9 @@ const CollectionPage = () => {
       <div className="flex-grow p-4">
         <h2 className="text-2xl uppercase mb-4">All Collections</h2>
         {/* Sort Options */}
+        <SortOptions />
+        {/* Product Grid */}
+        <ProductGrid products={products} />
       </div>
     </div>
   );
