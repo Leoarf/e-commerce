@@ -1,8 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaFilter } from 'react-icons/fa';
+import FilterSidebar from '../components/Products/FilterSidebar';
 
 const CollectionPage = () => {
   const [products, setProducts] = useState();
+  const sidebarRef = useRef(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleClickOutside = (e) => {
+    // Close sidebar if clicked outside
+    if (sidebarRef.current && !sidebarRef.current.contains(e.target.value)) {
+      setIsSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add Event listener for clicks
+    document.addEventListener('mousedown', handleClickOutside);
+    // Clear Event listener for clicks
+    document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -94,12 +115,24 @@ const CollectionPage = () => {
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Mobile Filter button */}
-      <button className="lg:hidden border p-2 flex justify-center items-center">
-        <FaFilter className="mr-2" />
+      <button
+        onClick={toggleSidebar}
+        className="lg:hidden border p-2 flex justify-center items-center"
+      >
+        <FaFilter className="mr-2" /> Filters
       </button>
       {/* Filter Sidebar */}
-      <div>
-        
+      <div
+        ref={sidebarRef}
+        className={`${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } fixed inset-y-0 z-50 left-0 w-64 bg-white overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}
+      >
+        <FilterSidebar />
+      </div>
+      <div className="flex-grow p-4">
+        <h2 className="text-2xl uppercase mb-4">All Collections</h2>
+        {/* Sort Options */}
       </div>
     </div>
   );
