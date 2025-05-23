@@ -61,7 +61,7 @@ const Checkout = () => {
               disabled
             />
           </div>
-          <h3 className="text-lg mb-4">Delivey</h3>
+          <h3 className="text-lg mb-4">Delivery</h3>
           <div className="mb-4 grid grid-cols-2 gap-4">
             <div>
               <label className="block text-gray-700">First Name</label>
