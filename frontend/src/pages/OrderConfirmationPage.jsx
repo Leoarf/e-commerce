@@ -93,7 +93,7 @@ const OrderConfirmationPage = () => {
             </div>
             {/* Delivery Info */}
             <div>
-              <h4 className="text-lg font-semibold mb-2">Delivey</h4>
+              <h4 className="text-lg font-semibold mb-2">Delivery</h4>
               <p className="text-gray-600">
                 {checkout.shippingAddress.address}
               </p>
