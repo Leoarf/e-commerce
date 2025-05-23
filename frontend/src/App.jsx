@@ -29,6 +29,7 @@ const App = () => {
             path="order-confirmation"
             element={<OrderConfirmationPage />}
           />
+          <Route path="my-orders" element={<MyOrdersPage />} />
           <Route path="order/:id" element={<OrderDetailsPage />} />
         </Route>
         <Route> {/* Admin Layout */} </Route>
