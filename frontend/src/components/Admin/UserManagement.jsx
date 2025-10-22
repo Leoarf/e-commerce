@@ -41,10 +41,10 @@ function UserManagement() {
   };
 
   const handleDeleteUser = (userId) => {
-    if(window.confirm("Are you sure you want to delete this user?")) {
-        console.log("deleting user with ID", userId)
+    if (window.confirm('Are you sure you want to delete this user?')) {
+      console.log('deleting user with ID', userId);
     }
-  }
+  };
 
   return (
     <div className="max-w-7xl mx-auto p-6">
