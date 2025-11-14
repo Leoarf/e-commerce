@@ -27,6 +27,7 @@ function UserManagement() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    console.log(FormDataEvent);
     // Reset the form after Submission
     setFormData({
       name: '',
