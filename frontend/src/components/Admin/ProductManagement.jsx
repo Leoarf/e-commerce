@@ -44,7 +44,7 @@ function ProductManagement() {
                   <td className="p-4">{product.sku}</td>
                   <td className="p-4">
                     <Link
-                      to={`/admins/products/${product._id}/edit`}
+                      to={`/admin/products/${product._id}/edit`}
                       className="bg-yellow-500 text-white px-2 py-1 rounded mr-2 hover:bg-yellow-600"
                     >
                       Edit
