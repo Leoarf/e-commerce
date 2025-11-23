@@ -125,7 +125,7 @@ export const mergeCart = createAsyncThunk(
   }
 );
 
-const cartSlice = createSlice({
+export const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     cart: loadCartFromLocalStorage(),
