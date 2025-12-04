@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../redux/slices/authSlice';
 import { clearCart } from '../redux/slices/cartSlice';
+import { FiUser, FiMail, FiLogOut } from 'react-icons/fi';
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
@@ -23,26 +24,35 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-grow container mx-auto p-4 md:p-6">
-        <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0">
-          {/* Left Section */}
-          <div className="w-full md:w-1/3 lg:w-1/4 shadow-md rounded-lg p-6">
-            <h1 className="text-2xl md:text-3xl font-bold mb-4">
-              {user?.name}
-            </h1>
-            <p className="text-lg text-gray-600 mb-4">{user?.email}</p>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4 py-8">
+        {/* Profile Header */}
+        <div className="bg-gradient-to-r from-azurio to-blue-600 rounded-2xl shadow-xl p-6 mb-8 text-white">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-center space-x-4 mb-6 md:mb-0">
+              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <FiUser className="h-10 w-10" />
+              </div>
+              <div>
+                <h1 className="text-2xl md:text-3xl font-bold">{user?.name}</h1>
+                <div className="flex items-center space-x-2 mt-1">
+                  <FiMail className="h-4 w-4 text-white/80" />
+                  <p className="text-white/80">{user?.email}</p>
+                </div>
+              </div>
+            </div>
             <button
               onClick={handleLogout}
-              className="w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+              className="flex items-center space-x-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
             >
-              Logout
+              <FiLogOut className="h-5 w-5" />
+              <span className="font-semibold">Logout</span>
             </button>
           </div>
-          {/* Right Section: Orders table */}
-          <div className="w-full md:w-2/3 lg:w-3/4">
-            <MyOrdersPage />
-          </div>
+        </div>
+        {/* Main Content */}
+        <div className="w-full">
+          <MyOrdersPage />
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'rabbit-red': '#ea2e0e',
+        'azurio': '#1E90FF',
       },
     },
   },

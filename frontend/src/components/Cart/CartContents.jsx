@@ -8,7 +8,7 @@ import {
 
 const CartContents = ({ cart, userId, guestId }) => {
   const dispatch = useDispatch();
-  // Handle adding ou substracting to cart
+
   const handleAddToCart = (productId, delta, quantity, size, color) => {
     const newQuantity = quantity + delta;
     if (newQuantity >= 1) {
@@ -36,6 +36,7 @@ const CartContents = ({ cart, userId, guestId }) => {
           key={index}
           className="flex items-start justify-between py-4 border-b"
         >
+          {/* LEFT SECTION */}
           <div className="flex items-start">
             <img
               src={product.image}
@@ -43,7 +44,7 @@ const CartContents = ({ cart, userId, guestId }) => {
               className="w-20 h-24 object-cover mr-4 rounded"
             />
             <div>
-              <h3>{product.name}</h3>
+              <h3 className="font-medium">{product.name}</h3>
               <p className="text-sm text-gray-500">
                 size: {product.size} | color: {product.color}
               </p>
@@ -80,8 +81,9 @@ const CartContents = ({ cart, userId, guestId }) => {
               </div>
             </div>
           </div>
-          <div>
-            <p>$ {product.price.toLocaleString()}</p>
+          {/* RIGHT SECTION */}
+          <div className="flex flex-col items-end min-w-[90px] text-right">
+            <p className="font-medium">$ {Number(product.price).toFixed(2)}</p>
             <button
               onClick={() =>
                 handleRemoveFromCart(
