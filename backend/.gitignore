@@ -1,0 +1,34 @@
+# Node dependencies
+/node_modules
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Cache and temporary files
+.cache/
+.tmp/
+
+# Editor settings
+.vscode/
+.idea/
+
+# Build output (if generated)
+dist/
+build/
+
+# Nodemon ignore file
+.nodemonignore
