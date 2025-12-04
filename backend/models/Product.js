@@ -15,9 +15,6 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    discountPrice: {
-      type: Number,
-    },
     countInStock: {
       type: Number,
       required: true,
@@ -43,10 +40,6 @@ const productSchema = new mongoose.Schema(
       type: [String],
       required: true,
     },
-    collections: {
-      type: String,
-      required: true,
-    },
     material: {
       type: String,
     },
@@ -65,14 +58,6 @@ const productSchema = new mongoose.Schema(
         },
       },
     ],
-    isFeatured: {
-      type: Boolean,
-      default: false,
-    },
-    isPublished: {
-      type: Boolean,
-      default: false,
-    },
     rating: {
       type: Number,
       default: 0,

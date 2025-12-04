@@ -210,7 +210,7 @@ router.get('/', async (req, res) => {
           sort = { price: -1 };
           break;
         case 'popularity':
-          sort = { price: -1 };
+          sort = { rating: -1 };
           break;
         default:
           break;
