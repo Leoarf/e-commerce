@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   fetchProductsByFilters,
   setFilters,
-} from '../../redux/slices/productsSlice';
+} from '../../../redux/slices/productsSlice';
 
 export const useSearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
