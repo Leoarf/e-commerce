@@ -1,8 +1,5 @@
 import React from 'react';
-import { HiOutlineCreditCard, HiShoppingBag } from 'react-icons/hi';
-import { HiArrowPathRoundedSquare } from 'react-icons/hi2';
 import { FiTruck, FiRefreshCw, FiShield } from 'react-icons/fi';
-// Adicione a importação do Link
 import { Link } from 'react-router-dom';
 
 const FeaturesSection = () => {
@@ -89,7 +86,6 @@ const FeaturesSection = () => {
                 </span>
                 <div className="ml-2 w-8 h-0.5 bg-gray-300 group-hover:w-12 transition-all duration-300"></div>
               </div>
-
               {/* Hover Background Effect */}
               <div
                 className={`absolute inset-0 rounded-2xl ${
