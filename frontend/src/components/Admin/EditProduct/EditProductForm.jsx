@@ -4,7 +4,7 @@ import { FaArrowLeft, FaExclamationCircle } from 'react-icons/fa';
 import BasicInfoCard from './BasicInfoCard';
 import VariantsCard from './VariantsCard';
 import ImagesCard from './ImagesCard';
-import ActionButtons from '../../Common/ActionButtons';
+import ActionButtons from './ActionButtons';
 import { useEditProduct } from './useEditProduct';
 
 function EditProductForm() {
