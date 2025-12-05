@@ -16,8 +16,12 @@ export const fetchAllOrders = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.error(error);
-      return rejectWithValue(error.response.data);
+      console.error('Fetch orders error:', error);
+      // Optional chaining
+      return rejectWithValue({
+        message: error.response?.data?.message || error.message,
+        status: error.response?.status,
+      });
     }
   }
 );
@@ -38,8 +42,11 @@ export const updateOrderStatus = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.error(error);
-      return rejectWithValue(error.response.data);
+      console.error('Update order error:', error);
+      return rejectWithValue({
+        message: error.response?.data?.message || error.message,
+        status: error.response?.status,
+      });
     }
   }
 );
@@ -59,8 +66,12 @@ export const deleteOrder = createAsyncThunk(
       );
       return id;
     } catch (error) {
-      console.error(error);
-      return rejectWithValue(error.response.data);
+      console.error('Delete order error:', error);
+      return rejectWithValue({
+        message:
+          error.response?.data?.message || error.message,
+        status: error.response?.status,
+      });
     }
   }
 );
@@ -74,7 +85,11 @@ const adminOrderSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    clearError: (state) => {
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       // Fetch all orders
@@ -94,9 +109,16 @@ const adminOrderSlice = createSlice({
       })
       .addCase(fetchAllOrders.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload.message;
+        // Corrija aqui também
+        state.error =
+          action.payload?.message ||
+          action.error?.message ||
+          'Failed to fetch orders';
       })
       // Update order status
+      .addCase(updateOrderStatus.pending, (state) => {
+        state.error = null;
+      })
       .addCase(updateOrderStatus.fulfilled, (state, action) => {
         const updatedOrder = action.payload;
         const orderIndex = state.orders.findIndex(
@@ -106,13 +128,35 @@ const adminOrderSlice = createSlice({
           state.orders[orderIndex] = updatedOrder;
         }
       })
+      .addCase(updateOrderStatus.rejected, (state, action) => {
+        state.error =
+          action.payload?.message ||
+          action.error?.message ||
+          'Failed to update order status';
+      })
       // Delete order
+      .addCase(deleteOrder.pending, (state) => {
+        state.error = null;
+      })
       .addCase(deleteOrder.fulfilled, (state, action) => {
         state.orders = state.orders.filter(
           (order) => order._id !== action.payload
         );
+        state.totalOrders = state.orders.length;
+        // Recalcular total sales
+        const totalSales = state.orders.reduce((acc, order) => {
+          return acc + order.totalPrice;
+        }, 0);
+        state.totalSales = totalSales;
+      })
+      .addCase(deleteOrder.rejected, (state, action) => {
+        state.error =
+          action.payload?.message ||
+          action.error?.message ||
+          'Failed to delete order';
       });
   },
 });
 
+export const { clearError } = adminOrderSlice.actions;
 export default adminOrderSlice.reducer;
