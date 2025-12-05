@@ -1,9 +1,12 @@
 import React from 'react';
-import BrandHeader from '../Common/BrandHeader';
-import NavItem from '../Common/NavItem';
-import LogoutButton from '../Common/LogoutButton';
-import StatusIndicator from '../Common/StatusIndicator';
-import { sidebarMenuItems, sidebarConstants } from '../Common/sidebarConfig';
+import BrandHeader from './AdminSidebar/BrandHeader';
+import NavItem from './AdminSidebar/NavItem';
+import LogoutButton from './AdminSidebar/LogoutButton';
+import StatusIndicator from './AdminSidebar/StatusIndicator';
+import {
+  sidebarMenuItems,
+  sidebarConstants,
+} from './AdminSidebar/sidebarConfig';
 
 const AdminSidebar = () => {
   const { BRAND, VERSION } = sidebarConstants;

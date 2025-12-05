@@ -2,8 +2,8 @@ import React from 'react';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../redux/slices/authSlice';
-import { clearCart } from '../../redux/slices/cartSlice';
+import { logout } from '../../../redux/slices/authSlice';
+import { clearCart } from '../../../redux/slices/cartSlice';
 
 const LogoutButton = () => {
   const navigate = useNavigate();
