@@ -1,0 +1,40 @@
+import { FaUser, FaUserShield } from 'react-icons/fa';
+
+export const STATS_CONFIG = [
+  {
+    id: 'total',
+    title: 'Total Users',
+    icon: FaUser,
+    color: 'blue',
+    gradientFrom: 'from-blue-50',
+    gradientTo: 'to-azurio/10',
+    borderColor: 'border-blue-100',
+    iconBg: 'from-azurio to-blue-500',
+    badgeColor: 'text-blue-600 bg-blue-100',
+    badgeText: 'Total',
+  },
+  {
+    id: 'admin',
+    title: 'Admin Users',
+    icon: FaUserShield,
+    color: 'purple',
+    gradientFrom: 'from-purple-50',
+    gradientTo: 'to-purple-100/50',
+    borderColor: 'border-purple-100',
+    iconBg: 'from-purple-500 to-purple-600',
+    badgeColor: 'text-purple-600 bg-purple-100',
+    badgeText: 'Admin',
+  },
+  {
+    id: 'customer',
+    title: 'Customer Users',
+    icon: FaUser,
+    color: 'emerald',
+    gradientFrom: 'from-emerald-50',
+    gradientTo: 'to-emerald-100/50',
+    borderColor: 'border-emerald-100',
+    iconBg: 'from-emerald-500 to-emerald-600',
+    badgeColor: 'text-emerald-600 bg-emerald-100',
+    badgeText: 'Customer',
+  },
+];
