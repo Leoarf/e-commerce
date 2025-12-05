@@ -23,7 +23,7 @@ const OrderRow = ({ order, formatDate, onStatusChange }) => {
               {order.user?.name || 'Customer'}
             </div>
             <div className="text-xs text-gray-500">
-              {order.user?.email || ''}
+              {order.user._id.slice(-8).toUpperCase()}
             </div>
           </div>
         </div>
