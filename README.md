@@ -80,6 +80,7 @@ npm run dev
 ## 🌐 **Environment Variables**
 
 ### Backend (.env)
+
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
@@ -90,6 +91,7 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 ```
 
 ### Frontend (.env)
+
 ```env
 VITE_PAYPAL_CLIENT_ID=your_paypal_client_id
 VITE_BACKEND_URL=your_backend_url
@@ -108,6 +110,7 @@ VITE_BACKEND_URL=your_backend_url
 - [ ] Ability to add products through the admin panel (currently only possible via backend seeder or MongoDB Atlas)
 - [ ] Coupon/discount system
 - [ ] Wishlist feature
+- [ ] Data validation in forms such as register, etc.
 
 ## 📄 **License**
 
