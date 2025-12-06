@@ -28,7 +28,7 @@ const seedData = async () => {
     const createdUser = await User.create({
       name: 'Admin User',
       email: 'admin@example.com',
-      password: '123456',
+      password: '12345678',
       role: 'admin',
     });
     // Assign the default user ID to each product
