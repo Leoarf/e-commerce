@@ -5,6 +5,7 @@ const User = require('./models/User');
 const Cart = require('./models/Cart');
 const Checkout = require('./models/Checkout');
 const Order = require('./models/Order');
+const Subscriber = require('./models/Subscriber');
 const products = require('./data/products');
 
 dotenv.config();
@@ -22,11 +23,12 @@ const seedData = async () => {
     await Cart.deleteMany();
     await Checkout.deleteMany();
     await Order.deleteMany();
+    await Subscriber.deleteMany();
     // Create a default admin User
     const createdUser = await User.create({
       name: 'Admin User',
       email: 'admin@example.com',
-      password: '123456',
+      password: '12345678',
       role: 'admin',
     });
     // Assign the default user ID to each product

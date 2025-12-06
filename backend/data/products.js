@@ -297,7 +297,7 @@ const products = [
     category: 'Bottom Wear',
     brand: 'ChillZone',
     sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Gray', 'Gray', 'Blue'],
+    colors: ['Gray', 'Red', 'Blue'],
     material: 'Fleece',
     gender: 'Men',
     images: [

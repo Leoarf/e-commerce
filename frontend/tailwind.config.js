@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'azurio': '#1E90FF',
+        azurio: '#1E90FF',
       },
     },
   },
