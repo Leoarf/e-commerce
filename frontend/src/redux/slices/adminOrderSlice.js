@@ -68,8 +68,7 @@ export const deleteOrder = createAsyncThunk(
     } catch (error) {
       console.error('Delete order error:', error);
       return rejectWithValue({
-        message:
-          error.response?.data?.message || error.message,
+        message: error.response?.data?.message || error.message,
         status: error.response?.status,
       });
     }
